@@ -58,7 +58,7 @@ function GameModeLayer:initDecor()
     local h = display.height
 
     -- background
-    local bgSprite = CCSprite:create('red_bg.png')
+    local bgSprite = CCSprite:create('menu_epic_bg.png')
     bgSprite:fullScreen()
     bgSprite:setAnchorPoint(0, 0)
     bgSprite:setPosition(0, 0)

@@ -57,7 +57,7 @@ function SelectLayer:init()
 
     local width, height = display.width, display.height
 
-    local bg_src = self.enableCustomSelect and 'red_bg.png' or 'blue_bg.png'
+    local bg_src = self.enableCustomSelect and 'select_epic_red.png' or 'select_epic_blue.png'
     local bgSprite = display.newSprite(bg_src, 0, 0)
     bgSprite:setAnchorPoint(0, 0)
     bgSprite:fullScreen()

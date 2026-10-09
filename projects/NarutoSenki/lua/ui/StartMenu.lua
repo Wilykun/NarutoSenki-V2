@@ -89,6 +89,12 @@ end
 function StartMenu:initDecor(versionCode)
     local w, h = display.width, display.height
 
+    -- epic fullscreen moonlit backdrop (behind all decor)
+    local epicBg = display.newSprite('menu_epic_bg.png', 0, 0)
+    epicBg:setAnchorPoint(0, 0)
+    epicBg:fullScreen()
+    self:addChild(epicBg, 0)
+
     -- ground
     local goldLeft = display.newSprite('#gold_left.png')
     goldLeft:setAnchorPoint(0, 0)
