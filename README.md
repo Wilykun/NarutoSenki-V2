@@ -26,10 +26,18 @@ Nonton AI lawan AI — kamu cukup menonton.
 ### ● Menu Bahasa Indonesia
 Otomatis aktif di HP berbahasa Indonesia (judul mode, popup developer, dll).
 
-### ◆ Tombol Developer
-Di pojok kanan atas menu utama — berisi kontak developer:
-◆ WhatsApp: 0896-8820-6739 (ketuk untuk membuka chat)
-◆ Telegram ID: 5810736154
+### ✦ Developer & Kontak
+
+```
+╔══════════════════════════════════╗
+  Dibuat oleh Wilykun
+  ──────────────────────────────
+  ◆ WhatsApp : 0896-8820-6739
+  ◆ Telegram : ID 5810736154
+╚══════════════════════════════════╝
+```
+
+Ada **saran, laporan bug, atau request fitur**? Hubungi langsung via WhatsApp maupun Telegram — tombol **DEV** juga ada di pojok kanan atas menu utama game (ketuk WhatsApp untuk membuka chat otomatis).
 
 ## ✓ Cara Install di Android
 
