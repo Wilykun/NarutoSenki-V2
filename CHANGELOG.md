@@ -1,5 +1,10 @@
 # Changelog — NarutoSenki V2
 
+## v1.1.0
+### ✓ Update
+◆ Version bump ke **1.1.0** (versionCode 2)
+◆ Rebuild APK final — semua fitur v1.0.0 + semua perbaikan build
+
 ## v1.0.0 — AI vs AI Spectate
 
 ### ✦ Mode Baru: AI VS AI (Spectate)
