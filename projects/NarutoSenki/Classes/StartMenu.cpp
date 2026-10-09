@@ -209,6 +209,7 @@ StartMenu::StartMenu()
 	noticeLabel = nullptr;
 	news_btn = nullptr;
 	login_btn = nullptr;
+	dev_btn = nullptr;
 	noticeBg = nullptr;
 	noticeClipper = nullptr;
 }
@@ -270,9 +271,14 @@ bool StartMenu::init()
 	Menu *menu2 = Menu::create(login_btn, nullptr);
 	addChild(menu2, 5);
 
-	dev_btn = MenuItemSprite::create(Sprite::create("dev_btn.png"), nullptr, this, menu_selector(StartMenu::onDevBtn));
-	Menu *menu3 = Menu::create(dev_btn, nullptr);
-	addChild(menu3, 5);
+	dev_btn = nullptr;
+	auto devSprite = Sprite::create("dev_btn.png");
+	if (devSprite)
+	{
+		dev_btn = MenuItemSprite::create(devSprite, nullptr, this, menu_selector(StartMenu::onDevBtn));
+		Menu *menu3 = Menu::create(dev_btn, nullptr);
+		addChild(menu3, 5);
+	}
 
 	// Lua positions everything above (buttons per slot, menu text, news / login
 	// buttons, notice bar) and starts the notice marquee.

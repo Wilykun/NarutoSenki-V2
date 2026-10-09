@@ -204,9 +204,11 @@ function StartMenu:layoutControls()
 
     -- developer button: top-right, below the login button
     local dev = self:getDevButton()
-    dev:setAnchorPoint(1, 0.5)
-    dev:getParent():setPosition(w - LAYOUT.devButton.fromRight,
-                                h - LAYOUT.devButton.fromTop)
+    if dev then
+        dev:setAnchorPoint(1, 0.5)
+        dev:getParent():setPosition(w - LAYOUT.devButton.fromRight,
+                                    h - LAYOUT.devButton.fromTop)
+    end
 
     -- notice bar
     local noticeBg = self:getNoticeBg()

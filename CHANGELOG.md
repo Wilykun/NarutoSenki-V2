@@ -1,5 +1,11 @@
 # Changelog — NarutoSenki V2
 
+## v1.2.1
+### ✓ Perbaikan
+◆ Fix asset tidak sinkron di build (tombol DEV sekarang muncul di posisi yang benar)
+◆ Kode tombol DEV dibuat defensif (aman walau asset hilang)
+◆ Version bump ke **1.2.1** (versionCode 4)
+
 ## v1.2.0
 ### ✦ Baru
 ◆ Tombol **Developer** di menu utama — popup kontak (WhatsApp ketuk-untuk-chat, Telegram ID)
