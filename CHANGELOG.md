@@ -1,5 +1,13 @@
 # Changelog — NarutoSenki V2
 
+## v1.2.0
+### ✦ Baru
+◆ Tombol **Developer** di menu utama — popup kontak (WhatsApp ketuk-untuk-chat, Telegram ID)
+◆ Menu **bahasa Indonesia** otomatis di HP berbahasa Indonesia (judul mode, popup developer)
+◆ README baru: tutorial install, daftar fitur, dan info update
+### ✓ Update
+◆ Version bump ke **1.2.0** (versionCode 3)
+
 ## v1.1.0
 ### ✓ Update
 ◆ Version bump ke **1.1.0** (versionCode 2)

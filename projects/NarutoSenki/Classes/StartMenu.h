@@ -81,6 +81,7 @@ public:
 
 	void onNewsBtn(Ref *sender);
 	void onLoginBtn(Ref *sender);
+	void onDevBtn(Ref *sender);
 
 	// Decides the new slot of every button (forward/backward) and hands the
 	// movement to Lua. `touched` is the button the user tapped / dragged.
@@ -94,6 +95,7 @@ public:
 
 	MenuItem *news_btn;
 	MenuItem *login_btn;
+	MenuItem *dev_btn;
 	void setNotice();
 
 	Layer *notice_layer;
@@ -113,6 +115,7 @@ public:
 	Sprite *getMenuText() { return menuText; }
 	MenuItem *getNewsButton() { return news_btn; }
 	MenuItem *getLoginButton() { return login_btn; }
+	MenuItem *getDevButton() { return dev_btn; }
 	Node *getNoticeBg() { return noticeBg; }
 	Node *getNoticeClipper() { return noticeClipper; }
 	Node *getNoticeLabel() { return noticeLabel; }

@@ -104,6 +104,18 @@ void GameModeLayer::initModeData()
 		modes[GameMode::RandomDeathmatch] = {"随机死亡竞赛 (3 VS 3)", ""};
 		modes[GameMode::Spectate] = {"AI VS AI", "观战模式"};
 	}
+	else if (lang == LanguageType::kLanguageIndonesian)
+	{
+		modes[GameMode::OneVsOne] = {"1 VS 1", ""};
+		modes[GameMode::Classic] = {"3 VS 3", "Mode klasik"};
+		modes[GameMode::FourVsFour] = {"4 VS 4", ""};
+		modes[GameMode::HardCore_4Vs4] = {"HardCore (4 VS 4)", "Tanpa gear"};
+		modes[GameMode::Boss] = {"Boss (3 VS 3)", ""};
+		modes[GameMode::Clone] = {"Klon (3 VS 3)", ""};
+		modes[GameMode::Deathmatch] = {"Deathmatch (3 VS 3)", ""};
+		modes[GameMode::RandomDeathmatch] = {"Deathmatch acak (3 VS 3)", ""};
+		modes[GameMode::Spectate] = {"AI VS AI", "Mode tonton"};
+	}
 	else // English
 	{
 		modes[GameMode::OneVsOne] = {"1 VS 1", ""};

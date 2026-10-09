@@ -1,5 +1,6 @@
 #include "StartMenu.h"
 #include "Constants/UiFlowKeys.hpp"
+#include "UI/DeveloperLayer.hpp"
 
 GameMode s_GameMode = GameMode::Classic;
 std::array<std::unique_ptr<IGameModeHandler>, GameMode::__Internal_Max_Length> s_ModeHandlers = {
@@ -269,6 +270,10 @@ bool StartMenu::init()
 	Menu *menu2 = Menu::create(login_btn, nullptr);
 	addChild(menu2, 5);
 
+	dev_btn = MenuItemSprite::create(Sprite::create("dev_btn.png"), nullptr, this, menu_selector(StartMenu::onDevBtn));
+	Menu *menu3 = Menu::create(dev_btn, nullptr);
+	addChild(menu3, 5);
+
 	// Lua positions everything above (buttons per slot, menu text, news / login
 	// buttons, notice bar) and starts the notice marquee.
 	lua_call_func_self(StartMenuFlowKeys::kLayoutControls, this, "StartMenu");
@@ -293,6 +298,12 @@ void StartMenu::onExit()
 	Layer::onExit();
 	// Keep audio engine alive across scene transitions (e.g. Credits),
 	// otherwise newly started BGM can be cut off when StartMenu exits.
+}
+
+void StartMenu::onDevBtn(Ref *sender)
+{
+	(void)sender;
+	addChild(DeveloperLayer::create(), 5000);
 }
 
 void StartMenu::onLoginBtn(Ref *sender)

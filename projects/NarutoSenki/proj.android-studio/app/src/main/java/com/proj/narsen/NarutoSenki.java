@@ -8,12 +8,32 @@ import org.cocos2dx.lib.Cocos2dxGLSurfaceView;
 
 public class NarutoSenki extends Cocos2dxActivity {
 
+    private static NarutoSenki sInstance;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        sInstance = this;
         getWindow().setFlags(
             WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON,
             WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
         );
+    }
+
+    /** Opens an URL in the system browser. Called from native code (DeveloperLayer). */
+    public static void openUrl(final String url) {
+        if (sInstance == null) return;
+        sInstance.runOnUiThread(new Runnable() {
+            public void run() {
+                try {
+                    android.content.Intent intent = new android.content.Intent(
+                        android.content.Intent.ACTION_VIEW,
+                        android.net.Uri.parse(url));
+                    sInstance.startActivity(intent);
+                } catch (Exception e) {
+                    // No browser available: ignore, the contact info is still visible.
+                }
+            }
+        });
     }
 
     public Cocos2dxGLSurfaceView onCreateGLSurfaceView() {

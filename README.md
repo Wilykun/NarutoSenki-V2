@@ -1,24 +1,59 @@
-# Naruto Senki - V2
+# Naruto Senki V2 — Wilykun Fork
 
 ![logo](Doc/images/naruto-senki-v2.png)
 
-## Documentation
+Fork dari [hitlabmodv2/NarutoSenki-V2](https://github.com/hitlabmodv2/NarutoSenki-V2) dengan mode **AI VS AI (Spectate)**, tombol Developer, dan menu **bahasa Indonesia**.
 
-English (includes **Linux, Windows, Android, macOS** build steps): **[Doc/README.md](Doc/README.md)**
+## ◆ Download
 
-[简体中文](Doc/README_ZH.md)
+◆ **Rilis terbaru (disarankan):** [v1.2.0](https://github.com/Wilykun/NarutoSenki-V2/releases/tag/v1.2.0)
+◆ Semua rilis: [Halaman Releases](https://github.com/Wilykun/NarutoSenki-V2/releases)
+◆ Changelog lengkap: [CHANGELOG.md](CHANGELOG.md)
 
-## Download
+## ★ Fitur
 
-Click here 👉 [Google Drive](https://drive.google.com/drive/folders/1addvZRBvPBGDJtiLdzMWgd6C_qiVS3Lt?usp=sharing)
+### ✦ Mode AI VS AI (Spectate)
+Nonton AI lawan AI — kamu cukup menonton.
+◆ Pilih jumlah fighter: **1v1 ◆ 2v2 ◆ 3v3 ◆ 4v4 ◆ 5v5**
+◆ Kamera otomatis mengikuti titik tengah pertarungan
+◆ Panel statistik live: skor kill tiap tim + K/D tiap fighter
 
-### Special
+### ★ Visual Baru
+◆ Start menu: desa ninja di bawah bulan purnama
+◆ Layar pilih karakter: battlefield malam biru / senja merah
+◆ Layar pilih mode: background bulan purnama
 
-- **🇨🇳中国大陆**
-  - [蓝奏云](https://naruto-senki-re.lanzoui.com/b0a3dddad)
+### ● Menu Bahasa Indonesia
+Otomatis aktif di HP berbahasa Indonesia (judul mode, popup developer, dll).
 
-## Last of all
+### ◆ Tombol Developer
+Di pojok kanan atas menu utama — berisi kontak developer:
+◆ WhatsApp: 0896-8820-6739 (ketuk untuk membuka chat)
+◆ Telegram ID: 5810736154
 
-I hope you guys have fun here :)
+## ✓ Cara Install di Android
 
-**<font color=#D32F2F>M</font><font color=#FF5722>a</font><font color=#FFEB3B>d</font><font color=#8BC34A>e</font> <font color=#00BCD4>b</font><font color=#448AFF>y</font> <font color=#673AB7>R</font><font color=#FF4081>e</font>**
+1. Download file APK dari [halaman rilis](https://github.com/Wilykun/NarutoSenki-V2/releases)
+2. Di HP, izinkan **Install unknown apps** untuk browser / file manager (Pengaturan → Keamanan)
+3. Buka file APK → **Install**
+4. Mainkan — **100% offline**, tanpa internet
+
+◆ Android 5.0+ ◆ arm64-v8a & armeabi-v7a
+
+## ● Update
+
+| Versi | Isi |
+|-------|-----|
+| v1.2.0 | Tombol Developer + kontak, menu bahasa Indonesia |
+| v1.1.0 | Version bump 1.1.0 |
+| v1.0.0 | Mode AI VS AI (1v1–5v5), statistik live, background epic, perbaikan build |
+
+## ◆ Build Sendiri (opsional)
+
+Workflow GitHub Actions otomatis membangun APK setiap push ke `master`.
+Lihat [Doc/README.md](Doc/README.md) untuk langkah build manual (Linux / Windows / macOS).
+
+## ● Kredit
+
+◆ Game asli: [hitlabmodv2/NarutoSenki-V2](https://github.com/hitlabmodv2/NarutoSenki-V2)
+◆ Mode Spectate, visual, dan fitur fork ini: **Wilykun**

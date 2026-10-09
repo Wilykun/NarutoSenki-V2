@@ -69,6 +69,7 @@ local LAYOUT = {
     -- news / login buttons sit this far below the top of the screen
     newsButton = {x = 15, fromTop = 50},
     loginButton = {fromRight = 15, fromTop = 50},
+    devButton = {fromRight = 15, fromTop = 115},
     noticeBg = {x = 15, y = 228},
     noticeClipper = {x = 35, y = 228}
 }
@@ -200,6 +201,12 @@ function StartMenu:layoutControls()
     login:setAnchorPoint(1, 0.5)
     login:getParent():setPosition(w - LAYOUT.loginButton.fromRight,
                                   h - LAYOUT.loginButton.fromTop)
+
+    -- developer button: top-right, below the login button
+    local dev = self:getDevButton()
+    dev:setAnchorPoint(1, 0.5)
+    dev:getParent():setPosition(w - LAYOUT.devButton.fromRight,
+                                h - LAYOUT.devButton.fromTop)
 
     -- notice bar
     local noticeBg = self:getNoticeBg()
