@@ -1,5 +1,12 @@
 # Naruto Senki V2 — Wilykun Fork
 
+[![Download APK](https://img.shields.io/badge/Download-APK-brightgreen?style=for-the-badge&logo=android)](https://github.com/Wilykun/NarutoSenki-V2/releases/latest)
+[![Latest Release](https://img.shields.io/github/v/release/Wilykun/NarutoSenki-V2?style=for-the-badge&label=Latest)](https://github.com/Wilykun/NarutoSenki-V2/releases)
+[![Build](https://img.shields.io/github/actions/workflow/status/Wilykun/NarutoSenki-V2/build-apk.yml?style=for-the-badge&label=Build)](https://github.com/Wilykun/NarutoSenki-V2/actions)
+[![Android](https://img.shields.io/badge/Android-5.0%2B-green?style=for-the-badge&logo=android)](https://github.com/Wilykun/NarutoSenki-V2/releases)
+[![Offline](https://img.shields.io/badge/100%25-Offline-blue?style=for-the-badge)](https://github.com/Wilykun/NarutoSenki-V2/releases)
+[![Bahasa](https://img.shields.io/badge/Bahasa-Indonesia-red?style=for-the-badge)](https://github.com/Wilykun/NarutoSenki-V2/releases)
+
 ![logo](Doc/images/naruto-senki-v2.png)
 
 Fork dari [hitlabmodv2/NarutoSenki-V2](https://github.com/hitlabmodv2/NarutoSenki-V2) dengan mode **AI VS AI (Spectate)**, tombol Developer, dan menu **bahasa Indonesia**.
