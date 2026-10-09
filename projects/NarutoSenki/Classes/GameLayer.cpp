@@ -62,7 +62,23 @@ void BattleRuntimeSystem::updateViewPoint(GameLayer* layer) const
 		return;
 
 	Vec2 playerPoint;
-	if (layer->ougisChar)
+	if (getGameModeHandler()->getGameData().isSpectate)
+	{
+		// Spectate (AI vs AI): frame the action — follow the midpoint of all fighters.
+		Vec2 mid(0, 0);
+		int n = 0;
+		for (auto hero : layer->_CharacterArray)
+		{
+			if (hero)
+			{
+				mid.x += hero->getPosition().x;
+				mid.y += hero->getPosition().y;
+				n++;
+			}
+		}
+		playerPoint = (n > 0) ? Vec2(mid.x / n, mid.y / n) : layer->currentPlayer->getPosition();
+	}
+	else if (layer->ougisChar)
 		playerPoint = layer->ougisChar->getPosition();
 	else if (layer->controlChar)
 		playerPoint = layer->controlChar->getPosition();
@@ -151,6 +167,7 @@ bool GameLayer::init()
 	_isHardCoreGame = gd.isHardCore;
 	_isRandomChar = gd.isRandomChar;
 	is4V4Mode = gd.use4v4SpawnLayout;
+	isSpectateMode = gd.isSpectate;
 	playerGroup = gd.playerGroup;
 
 	return Layer::init();
@@ -292,13 +309,33 @@ void GameLayer::initHeros()
 	}
 
 	int i = 0;
+	int specK = 0, specA = 0;
 	for (auto& data : herosDataVector)
 	{
 		if (data.isInit)
 			continue;
 
 		int mapPos = i;
-		if (data.group == Group::Akatsuki)
+		int xOff = 0;
+		if (isSpectateMode)
+		{
+			// Spectate (AI vs AI): each side cycles through its 3 map spawn
+			// slots; fighters sharing a slot get a horizontal offset toward
+			// the middle so they don't spawn stacked on each other.
+			if (data.group == Group::Akatsuki)
+			{
+				mapPos = MapPosCount + (specA % MapPosCount);
+				xOff = -(specA / MapPosCount) * 110;
+				specA++;
+			}
+			else
+			{
+				mapPos = specK % MapPosCount;
+				xOff = (specK / MapPosCount) * 110;
+				specK++;
+			}
+		}
+		else if (data.group == Group::Akatsuki)
 		{
 			if (mapPos <= MapPosCount - 1)
 				mapPos += MapPosCount;
@@ -313,7 +350,7 @@ void GameLayer::initHeros()
 		auto mapdict = (CCDictionary*)mapObject;
 		int x = ((CCString*)mapdict->objectForKey("x"))->intValue();
 		int y = ((CCString*)mapdict->objectForKey("y"))->intValue();
-		data.setSpawnPoint(Vec2(x, y));
+		data.setSpawnPoint(Vec2(x + xOff, y));
 
 		if (is4V4Mode)
 		{

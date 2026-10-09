@@ -30,6 +30,13 @@ private:
 	CCLabelTTF *menuLabel = nullptr;
 	Menu *returnMenu = nullptr;
 
+	// Spectate (AI vs AI) team-size picker: 1v1..5v5, shown only while the
+	// Spectate mode button is selected.
+	Menu *teamPicker = nullptr;
+	vector<CCLabelBMFont *> teamPickerLabels;
+	void onTeamSizePicked(Ref *sender);
+	void refreshSpectatePicker();
+
 	vector<ModeMenuButton *> menuButtons = vector<ModeMenuButton *>(static_cast<size_t>(GameMode::__Internal_Max_Length));
 	vector<GameModeData> modes = vector<GameModeData>(static_cast<size_t>(GameMode::__Internal_Max_Length));
 };

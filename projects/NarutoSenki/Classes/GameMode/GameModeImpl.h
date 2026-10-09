@@ -15,6 +15,8 @@
 #include "GameMode/Impl/Deathmatch.hpp"
 #include "GameMode/Impl/RandomDeathmatch.hpp"
 
+#include "GameMode/Impl/Spectate.hpp"
+
 extern GameMode s_GameMode;
 extern std::array<std::unique_ptr<IGameModeHandler>, GameMode::__Internal_Max_Length> s_ModeHandlers;
 

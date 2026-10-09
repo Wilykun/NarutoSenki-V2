@@ -2,6 +2,8 @@
 #include "UI/GameModeLayer.h"
 #include "UI/ModeMenuButton.hpp"
 #include "Constants/UiFlowKeys.hpp"
+#include "Data/Fonts.h"
+#include <cstdio>
 
 extern const GameData kDefaultGameData;
 
@@ -37,6 +39,26 @@ bool GameModeLayer::init()
 	returnMenu = Menu::create(return_img, nullptr);
 	addChild(returnMenu, 5);
 
+	// Spectate team-size picker (1v1..5v5). Pure C++ UI, positioned here;
+	// Lua only lays out the mode buttons, the mode label and the return menu.
+	teamPicker = Menu::create();
+	for (int n = 1; n <= 5; n++)
+	{
+		auto label = CCLabelBMFont::create(format("{}v{}", n, n).c_str(), Fonts::White);
+		label->setScale(0.42f);
+		teamPickerLabels.push_back(label);
+		auto item = CCMenuItemLabel::create(label, this, menu_selector(GameModeLayer::onTeamSizePicked));
+		item->setTag(n);
+		teamPicker->addChild(item);
+	}
+	teamPicker->alignItemsHorizontallyWithPadding(26);
+	{
+		auto ws = Director::sharedDirector()->getWinSize();
+		teamPicker->setPosition(Vec2(ws.width / 2, 54));
+	}
+	teamPicker->setVisible(false);
+	addChild(teamPicker, 20);
+
 	// Lua builds the decoration and lays out every control created above.
 	lua_call_func_self(GameModeFlowKeys::kInit, this, "GameModeLayer");
 
@@ -55,6 +77,9 @@ bool GameModeLayer::init()
 
 void GameModeLayer::backToMenu(Ref *sender)
 {
+	if (teamPicker)
+		teamPicker->setVisible(false);
+
 	SimpleAudioEngine::sharedEngine()->playEffect("Audio/Menu/cancel.ogg");
 
 	auto menuScene = Scene::create();
@@ -77,6 +102,7 @@ void GameModeLayer::initModeData()
 		modes[GameMode::Clone] = {"克隆模式 (3 VS 3)", ""};
 		modes[GameMode::Deathmatch] = {"死亡竞赛 (3 VS 3)", ""};
 		modes[GameMode::RandomDeathmatch] = {"随机死亡竞赛 (3 VS 3)", ""};
+		modes[GameMode::Spectate] = {"AI VS AI", "观战模式"};
 	}
 	else // English
 	{
@@ -88,6 +114,7 @@ void GameModeLayer::initModeData()
 		modes[GameMode::Clone] = {"Clone (3 VS 3)", ""};
 		modes[GameMode::Deathmatch] = {"Deathmatch (3 VS 3)", ""};
 		modes[GameMode::RandomDeathmatch] = {"Random Deathmatch (3 VS 3)", ""};
+		modes[GameMode::Spectate] = {"AI VS AI", "Spectate mode"};
 	}
 
 	// init in developtment game modes
@@ -124,6 +151,7 @@ void GameModeLayer::selectMode(GameMode mode)
 		label += data.description;
 	}
 	menuLabel->setString(label.c_str());
+	refreshSpectatePicker();
 
 	if (setSelect(mode))
 	{
@@ -166,4 +194,41 @@ bool GameModeLayer::setSelect(GameMode mode)
 		modes.at(i).hasSelected = false;
 	data.hasSelected = true;
 	return false;
+}
+
+void GameModeLayer::onTeamSizePicked(Ref *sender)
+{
+	auto item = (MenuItem *)sender;
+	int n = item ? item->getTag() : 3;
+	if (n < 1)
+		n = 1;
+	if (n > 5)
+		n = 5;
+	g_SpectateTeamSize = n;
+	refreshSpectatePicker();
+}
+
+void GameModeLayer::refreshSpectatePicker()
+{
+	if (!teamPicker)
+		return;
+
+	bool show = modes[(size_t)GameMode::Spectate].hasSelected;
+	teamPicker->setVisible(show);
+	if (!show)
+		return;
+
+	for (size_t idx = 0; idx < teamPickerLabels.size(); idx++)
+	{
+		auto label = teamPickerLabels[idx];
+		int n = (int)idx + 1;
+		bool selected = (n == g_SpectateTeamSize);
+		label->setColor(selected ? ccc3(255, 200, 60) : ccc3(255, 255, 255));
+		label->setScale(selected ? 0.52f : 0.42f);
+	}
+
+	char buf[96];
+	snprintf(buf, sizeof(buf), "AI VS AI | Spectate mode | %dv%d",
+			 g_SpectateTeamSize, g_SpectateTeamSize);
+	menuLabel->setString(buf);
 }

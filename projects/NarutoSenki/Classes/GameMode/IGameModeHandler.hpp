@@ -7,6 +7,10 @@
 
 class IGameModeHandler;
 
+// Spectate (AI vs AI) team size per side, 1..5. Chosen on the mode-select
+// screen team picker; read by ModeSpectate::onInitHeros.
+extern int g_SpectateTeamSize;
+
 enum GameMode : uint32_t
 {
 	// 1 VS 1 // TODO: As a test mode
@@ -25,6 +29,8 @@ enum GameMode : uint32_t
 	Deathmatch,
 	// 3 VS 3
 	RandomDeathmatch,
+	// AI VS AI (spectate: both fighters AI-driven, player only watches)
+	Spectate,
 
 	__Internal_Max_Length
 }; // namespace GameMode
@@ -51,6 +57,10 @@ struct GameData
 	bool isRandomChar = false;
 
 	bool use4v4SpawnLayout = false;
+
+	// true in Spectate (AI vs AI) mode: the Role::Player hero is AI-driven
+	// and all inputs are locked; the human only watches.
+	bool isSpectate = false;
 
 	Group playerGroup;
 };
@@ -97,7 +107,7 @@ protected:
 	Group playerGroup;
 
 public:
-	const uint8_t kMaxCharCount = 4;
+	const uint8_t kMaxCharCount = 5;
 	const int kDefaultMap = 1;
 	const Group kDefaultGroup = Group::Konoha;
 

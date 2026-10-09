@@ -11,9 +11,12 @@ std::array<std::unique_ptr<IGameModeHandler>, GameMode::__Internal_Max_Length> s
 	std::make_unique<ModeClone>(false),
 	std::make_unique<ModeDeathmatch>(),
 	std::make_unique<ModeRandomDeathmatch>(),
+	std::make_unique<ModeSpectate>(),
 };
 int Cheats = 0;
 bool enableCustomSelect = false;
+// Spectate (AI vs AI) team size per side, 1..5 (default 3v3).
+int g_SpectateTeamSize = 3;
 
 /*----------------------
 init MenuButton ;

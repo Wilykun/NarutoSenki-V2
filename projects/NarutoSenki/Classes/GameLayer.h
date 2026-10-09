@@ -203,6 +203,7 @@ private:
 
 	bool isHUDInitialized = false;
 	bool is4V4Mode = false;
+	bool isSpectateMode = false;
 	vector<OnHUDInitializedCallback> callbackssList;
 
 	std::unique_ptr<BattleRuntimeSystem> _battleRuntimeSystem;

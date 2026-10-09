@@ -49,6 +49,7 @@ public:
 	uint32_t			_deadNum;
 	uint32_t			_flogNum;
 	PROP_UInt(_killNum, KillNum);
+	uint32_t getDeadNum() const { return _deadNum; }
 	PROP_UInt(_coin, Coin);
 
 
