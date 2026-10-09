@@ -151,9 +151,12 @@ void GameModeLayer::selectMode(GameMode mode)
 		label += data.description;
 	}
 	menuLabel->setString(label.c_str());
+
+	bool confirmed = setSelect(mode);
+	// Refresh after setSelect(): it relies on the updated hasSelected flags.
 	refreshSpectatePicker();
 
-	if (setSelect(mode))
+	if (confirmed)
 	{
 		for (size_t i = 0; i < modes.size(); i++)
 			modes.at(i).isLocked = true;
