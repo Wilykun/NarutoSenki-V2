@@ -35,6 +35,9 @@ Otomatis aktif di HP berbahasa Indonesia (judul mode, popup developer, dll).
 
 ### ✦ Developer & Kontak
 
+[![WhatsApp](https://img.shields.io/badge/WhatsApp-0896--8820--6739-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/6289688206739)
+![Telegram](https://img.shields.io/badge/Telegram-ID_5810736154-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)
+
 ```
 ╔══════════════════════════════════╗
   Dibuat oleh Wilykun
