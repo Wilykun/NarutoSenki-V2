@@ -128,3 +128,6 @@ project.properties
 *.iml
 
 # End of https://www.toptal.com/developers/gitignore/api/cocos2dx
+apk-run*/
+build-manual/
+bg-gen/
